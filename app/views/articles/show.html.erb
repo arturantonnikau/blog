@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row" style="text-align:center;padding-top:100px">
+    <h1>Статья #<%= @article.id %> </h1>
+  </div>
+  <div class="row">
+    <div class="mb-3 col-6 offset-3">
+      <label class="form-label">Заголовок</label>
+      <p class="form-control"><%= @article.title %></p>
+    </div>
+    <div class="mb-3 col-6 offset-3">
+      <label class="form-label">Текст Статьи</label>
+      <p class="form-control"><%= @article.body %></p>
+    </div>
+  </div>
+  <%= form_for :comment, url: article_comments_path(@article) do |f| %>
+    <div class="row g-2 mb-3 col-6 offset-3">
+      <div class="col-6">
+        <div class="form-floating">
+          <%= f.text_field :name, class: "form-control" %>
+          <%= f.label :name, 'Ваше имя' %>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-floating">
+          <%= f.text_field :email, class: "form-control" %>
+          <%= f.label :email, 'Ваше Email' %>
+        </div>
+      </div>
+      <div class="form-floating">
+        <%= f.text_area :body, class: "form-control", rows: "10", style: "height: 100px", placeholder: "Оставите Ваш комментарий" %>
+        <%= f.label :body, 'Комментарий' %>
+      </div>
+    </div>
+    <%= f.submit "Оставить Комментарий", class: "btn btn-primary", style: "margin:0 auto;display:block" %>
+  <% end %>
+  <div class="row">
+    <div class="comment-widgets">
+      <div class="mb-3 col-6 offset-3">
+        <% unless @article.comments.first.nil? %>
+          <% @article.comments.each do |comment| %>
+            <div class="comment-text w-100">
+              <h6><%= comment.name %></h6>
+              <span class="d-block"><%= comment.body %></span><br>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

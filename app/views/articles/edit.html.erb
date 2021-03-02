@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row" style="text-align:center;padding-top:100px">
+    <h1>Редактирование статьи</h1>
+  </div>
+  <div class="row">
+    <%= form_for :articles, url: article_path(@article), method: "patch" do |f| %>
+      <div class="mb-3 col-6 offset-3">
+        <%= f.label :title, "Заголовок", class: "form-label" %>
+        <%= f.text_field :title, class: "form-control", value: @article.title %>
+      </div>
+      <div class="mb-3 col-6 offset-3">
+        <%= f.label :body, "Текс Статьи", class: "form-label" %>
+        <%= f.text_area :body, class: "form-control", rows: "10", value: @article.body %>
+      </div>
+      <%= f.submit "Добавить", class: "btn btn-primary", style: "margin:0 auto;display:block" %>
+    <% end %>
+  </div>
+</div>
