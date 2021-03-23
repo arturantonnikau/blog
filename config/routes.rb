@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'pages/about'
   get 'pages/terms'
   root "articles#index"
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   # get "/contacts", to: "contacts#new"
   # post "/contacts", to: "contacts#create"
 
-  resources :articles do
+  resources :articles  do
     resources :comments, only: [:create]
   end
 
