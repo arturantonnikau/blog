@@ -8,14 +8,19 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+
+    @article_creator = User.find(@article.user_id)
   end
 
   def edit
     @article = Article.find(params[:id])
+
+    @article_creator = User.find(@article.user_id)
   end
 
   def create
-    @article = Article.new(article_params)
+    @user = current_user
+    @article = @user.articles.new(article_params)
     if @article.save
       # render plain: "Article was successfully saved!"
       redirect_to articles_path
