@@ -14,18 +14,6 @@
   </div>
   <%= form_for :comment, url: article_comments_path(@article) do |f| %>
     <div class="row g-2 mb-3 col-6 offset-3">
-      <div class="col-6">
-        <div class="form-floating">
-          <%= f.text_field :name, class: "form-control" %>
-          <%= f.label :name, 'Ваше имя' %>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="form-floating">
-          <%= f.text_field :email, class: "form-control" %>
-          <%= f.label :email, 'Ваше Email' %>
-        </div>
-      </div>
       <div class="form-floating">
         <%= f.text_area :body, class: "form-control", rows: "10", style: "height: 100px", placeholder: "Оставите Ваш комментарий" %>
         <%= f.label :body, 'Комментарий' %>
