@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  about:
+    title: "Pages#about"
+    message: Find me in app/views/pages/about.html.erb

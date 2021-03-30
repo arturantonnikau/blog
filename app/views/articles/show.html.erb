@@ -11,6 +11,10 @@
       <p class="form-control"><%= @article.title %></p>
     </div>
     <div class="mb-3 col-6 offset-3">
+      <label class="form-label">Картинка</label>
+      <img src=/<%= @article.images.first.url %> class="img-fluid" alt="image">
+    </div>
+    <div class="mb-3 col-6 offset-3">
       <label class="form-label">Текст Статьи</label>
       <p class="form-control"><%= @article.body %></p>
     </div>
